@@ -59,3 +59,49 @@ CREATE TABLE patrons (
     borrowed_books INT[] DEFAULT ARRAY[]::INT[]
 );
 ```
+
+
+### 2. Seed data (South African literature)
+
+```sql
+-- Insert authors
+INSERT INTO authors (id, name, nationality, birth_year, death_year) VALUES
+    (1, 'J.M. Coetzee', 'South African', 1940, NULL),
+    (2, 'Nadine Gordimer', 'South African', 1923, 2014),
+    (3, 'Zakes Mda', 'South African', 1948, NULL),
+    (4, 'Alan Paton', 'South African', 1903, 1988),
+    (5, 'Trevor Noah', 'South African', 1984, NULL),
+    (6, 'Bessie Head', 'South African', 1937, 1986),
+    (7, 'Deon Meyer', 'South African', 1958, NULL),
+    (8, 'Lauren Beukes', 'South African', 1976, NULL),
+    (9, 'Sol Plaatje', 'South African', 1876, 1932),
+    (10, 'Athol Fugard', 'South African', 1932, NULL);
+
+-- Insert books
+INSERT INTO books (id, title, author_id, genres, published_year, available) VALUES
+    (1, 'Disgrace', 1, ARRAY['Literary Fiction'], 1999, TRUE),
+    (2, 'Burger''s Daughter', 2, ARRAY['Political Fiction', 'Historical'], 1979, TRUE),
+    (3, 'The Heart of Redness', 3, ARRAY['Historical Fiction'], 2000, TRUE),
+    (4, 'Cry, the Beloved Country', 4, ARRAY['Tragedy', 'Social Commentary'], 1948, TRUE),
+    (5, 'Born a Crime', 5, ARRAY['Autobiography', 'Comedy'], 2016, TRUE),
+    (6, 'Maru', 6, ARRAY['Fiction', 'African Literature'], 1971, TRUE),
+    (7, 'Thirteen Hours', 7, ARRAY['Crime Thriller'], 2008, TRUE),
+    (8, 'The Shining Girls', 8, ARRAY['Science Fiction', 'Thriller'], 2013, TRUE),
+    (9, 'Mhudi', 9, ARRAY['Historical Fiction'], 1930, TRUE),
+    (10, 'Tsotsi', 10, ARRAY['Crime Fiction', 'Drama'], 1980, TRUE);
+
+-- Insert patrons
+INSERT INTO patrons (id, name, email, borrowed_books) VALUES
+    (1, 'Alice Johnson', 'alice@example.com', ARRAY[]::INT[]),
+    (2, 'Bob Smith', 'bob@example.com', ARRAY[1, 2]),
+    (3, 'Carol White', 'carol@example.com', ARRAY[]::INT[]),
+    (4, 'David Brown', 'david@example.com', ARRAY[3]),
+    (5, 'Eve Davis', 'eve@example.com', ARRAY[]::INT[]),
+    (6, 'Frank Moore', 'frank@example.com', ARRAY[4, 5]),
+    (7, 'Grace Miller', 'grace@example.com', ARRAY[]::INT[]),
+    (8, 'Hank Wilson', 'hank@example.com', ARRAY[6]),
+    (9, 'Ivy Taylor', 'ivy@example.com', ARRAY[]::INT[]),
+    (10, 'Jack Anderson', 'jack@example.com', ARRAY[7, 8]);
+```
+
+---
