@@ -105,3 +105,41 @@ INSERT INTO patrons (id, name, email, borrowed_books) VALUES
 ```
 
 ---
+
+## 💻 Usage and operations
+
+### Read operations
+
+```sql
+-- Get all books
+SELECT * FROM books;
+
+-- Get a book by title
+SELECT * FROM books WHERE title = 'Cry, the Beloved Country';
+
+-- Get all books by a specific author
+SELECT books.*
+FROM books
+JOIN authors ON books.author_id = authors.id
+WHERE authors.name = 'Alan Paton';
+
+-- Get all available books
+SELECT * FROM books WHERE available = TRUE;
+```
+
+### Update operations
+
+```sql
+-- Mark a book as borrowed
+UPDATE books SET available = FALSE WHERE title = 'Cry, the Beloved Country';
+
+-- Add a new genre to an existing book
+UPDATE books
+SET genres = array_append(genres, 'Classic Literature')
+WHERE title = 'Cry, the Beloved Country';
+
+-- Add a borrowed book to a patron's record
+UPDATE patrons
+SET borrowed_books = array_append(borrowed_books, 4)
+WHERE id = 1;
+```
