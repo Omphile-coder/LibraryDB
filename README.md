@@ -16,7 +16,7 @@ A PostgreSQL database project for managing library books, authors, and patrons. 
 - **Language:** SQL
 
 
-## 🚀 Installation and setup
+##  Installation and setup
 
 1. Install [PostgreSQL](https://www.postgresql.org/) and [pgAdmin 4](https://www.pgadmin.org/).
 2. Open pgAdmin 4 and connect to your PostgreSQL server.
@@ -26,7 +26,7 @@ A PostgreSQL database project for managing library books, authors, and patrons. 
 
 ---
 
-## 🗄️ Database schema and initialization
+##  Database schema and initialization
 
 ### 1. Create tables
 
@@ -106,7 +106,7 @@ INSERT INTO patrons (id, name, email, borrowed_books) VALUES
 
 ---
 
-## 💻 Usage and operations
+##  Usage and operations
 
 ### Read operations
 
