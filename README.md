@@ -143,3 +143,45 @@ UPDATE patrons
 SET borrowed_books = array_append(borrowed_books, 4)
 WHERE id = 1;
 ```
+
+### Delete operations
+
+```sql
+-- Delete a book by title
+DELETE FROM books WHERE title = 'Mhudi';
+
+-- Delete an author by ID (only if no books reference this author)
+DELETE FROM authors WHERE id = 10;
+```
+
+### Advanced queries
+
+```sql
+-- Find books published after 1990
+SELECT * FROM books WHERE published_year > 1990;
+
+-- Find all South African authors
+SELECT * FROM authors WHERE nationality = 'South African';
+
+-- Set all books to available
+UPDATE books SET available = TRUE;
+
+-- Find available books published after 1990
+SELECT * FROM books
+WHERE available = TRUE AND published_year > 1990;
+
+-- Find authors whose names contain "Coetzee"
+SELECT * FROM authors WHERE name ILIKE '%Coetzee%';
+
+-- Increment the published year 1948 by 1
+UPDATE books
+SET published_year = published_year + 1
+WHERE published_year = 1948;
+```
+
+---
+
+## 👤 Author
+
+**Omphile Lucas**  
+GitHub: [@Omphile-coder](https://github.com/Omphile-coder)
